@@ -22,12 +22,12 @@ resource "aws_subnet" "az1" {
   map_public_ip_on_launch = true
 
   tags = {
-    Owner = "bs sithole"
-    Name = "sitholebs-az1-subnet-dev"
+    Owner       = "bs sithole"
+    Name        = "sitholebs-az1-subnet-dev"
     Environment = "dev"
   }
   lifecycle {
-    ignore_changes = [ tags ]
+    ignore_changes = [tags]
   }
 }
 
@@ -38,13 +38,13 @@ resource "aws_subnet" "az2" {
   map_public_ip_on_launch = true
 
   tags = {
-    Owner = "bs sithole"
-    Name = "sitholebs-az2-subnet-dev"
+    Owner       = "bs sithole"
+    Name        = "sitholebs-az2-subnet-dev"
     Environment = "dev"
   }
 
   lifecycle {
-    ignore_changes = [ tags ]
+    ignore_changes = [tags]
   }
 }
 
@@ -55,13 +55,13 @@ resource "aws_subnet" "az3" {
   map_public_ip_on_launch = true
 
   tags = {
-    Owner = "bs sithole"
-    Name = "sitholebs-az3-subnet-dev"
+    Owner       = "bs sithole"
+    Name        = "sitholebs-az3-subnet-dev"
     Environment = "dev"
   }
 
   lifecycle {
-    ignore_changes = [ tags ]
+    ignore_changes = [tags]
   }
 }
 
@@ -102,8 +102,8 @@ resource "aws_eks_cluster" "eks-cluster" {
     aws_iam_role_policy_attachment.cluster_AmazonEKSClusterPolicy,
   ]
   tags = {
-    Owner = "bs sithole"
-    Name = "sitholebs-eks-dev"
+    Owner       = "bs sithole"
+    Name        = "sitholebs-eks-dev"
     Environment = "dev"
   }
 }
@@ -127,8 +127,8 @@ resource "aws_iam_role" "eks-cluster-role" {
   })
 
   tags = {
-    Owner = "bs sithole"
-    Name = "sitholebs-eks-cluster-role-dev"
+    Owner       = "bs sithole"
+    Name        = "sitholebs-eks-cluster-role-dev"
     Environment = "dev"
   }
 }
@@ -149,8 +149,8 @@ resource "aws_eks_access_entry" "eks-access-entry" {
   principal_arn = data.aws_caller_identity.current.arn
   type          = "STANDARD"
   tags = {
-    Owner = "bs sithole"
-    Name = "sitholebs-eks-access-entry-dev"
+    Owner       = "bs sithole"
+    Name        = "sitholebs-eks-access-entry-dev"
     Environment = "dev"
   }
 }
@@ -181,8 +181,8 @@ resource "aws_iam_role" "node-iam-role" {
   })
 
   tags = {
-    Owner = "bs sithole"
-    Name = "sitholebs-eks-node-iam-role-dev"
+    Owner       = "bs sithole"
+    Name        = "sitholebs-eks-node-iam-role-dev"
     Environment = "dev"
   }
 }
@@ -232,8 +232,8 @@ resource "aws_eks_node_group" "eks-ng" {
   }
 
   tags = {
-    Owner = "bs sithole"
-    Name = "sitholebs-eks-ng-dev"
+    Owner       = "bs sithole"
+    Name        = "sitholebs-eks-ng-dev"
     Environment = "dev"
   }
 
@@ -251,10 +251,10 @@ variable "prefix" {
   default = "sitholebs"
 }
 
-variable "environment" {
-  type    = string
-  default = "dev"
-}
+#variable "environment" {
+#type    = string
+#default = "dev"
+#}
 
 variable "capacity_type" {
   type        = string
@@ -265,5 +265,5 @@ variable "capacity_type" {
     error_message = "capacity_type must be either ON_DEMAND or SPOT."
   }
 }
- 
+
  
